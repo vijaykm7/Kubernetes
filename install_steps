@@ -21,6 +21,50 @@ step 1)
   #firewall-cmd --permanent --add-port=6443/tcp
 
 step 2) 
-disable selinux
-setenforce 0 
-sed -i --follow-symlinks 's/SELINUX=enforcing/SELINUX=disabled/g' /etc/sysconfig/selinux  [ Disable SELinux Permanently ]
+ disable selinux
+ setenforce 0 
+ sed -i --follow-symlinks 's/SELINUX=enforcing/SELINUX=disabled/g' /etc/sysconfig/selinux 
+ 
+step 3)
+ run the command to Enable br_netfilter Kernel Module
+ #modprobe br_netfilter
+ 
+
+ step 4)
+ Bypas Iptables
+  #echo '1' > /proc/sys/net/bridge/bridge-nf-call-iptables
+  #sysctl --system
+  
+Step 5) 
+Disable SWAP
+ run the command #swapoff -a
+ open vi /etc/fstab and commnt anything related to 'swap'
+ 
+ 
+ step 6)
+ Install Kuberntes.
+ You will install these packages on all of your machines:
+
+  * kubeadm: the command to bootstrap the cluster.
+
+  * kubelet: the component that runs on all of the machines in your cluster and does things like starting pods and containers.
+
+  * kubectl: the command line util to talk to your cluster.
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+ 
+ 
+ 
+
+
